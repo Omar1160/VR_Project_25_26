@@ -1,0 +1,87 @@
+{
+    "PreyAgent": {
+        "checkpoints": [
+            {
+                "steps": 22733,
+                "file_path": "results\\robot_test_3\\PreyAgent\\PreyAgent-22733.onnx",
+                "reward": -0.7182032943237573,
+                "creation_time": 1779620330.4567342,
+                "auxillary_file_paths": [
+                    "results\\robot_test_3\\PreyAgent\\PreyAgent-22733.pt"
+                ]
+            },
+            {
+                "steps": 127428,
+                "file_path": "results\\robot_test_3\\PreyAgent\\PreyAgent-127428.onnx",
+                "reward": 0.10282324627041817,
+                "creation_time": 1779623099.5746965,
+                "auxillary_file_paths": [
+                    "results\\robot_test_3\\PreyAgent\\PreyAgent-127428.pt"
+                ]
+            },
+            {
+                "steps": 128340,
+                "file_path": "results\\robot_test_3\\PreyAgent\\PreyAgent-128340.onnx",
+                "reward": -1.0060394275933504,
+                "creation_time": 1779624741.7886703,
+                "auxillary_file_paths": [
+                    "results\\robot_test_3\\PreyAgent\\PreyAgent-128340.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 128340,
+            "file_path": "results\\robot_test_3\\PreyAgent.onnx",
+            "reward": -1.0060394275933504,
+            "creation_time": 1779624741.7886703,
+            "auxillary_file_paths": [
+                "results\\robot_test_3\\PreyAgent\\PreyAgent-128340.pt"
+            ]
+        }
+    },
+    "NPCAgent": {
+        "checkpoints": [
+            {
+                "steps": 22656,
+                "file_path": "results\\robot_test_3\\NPCAgent\\NPCAgent-22656.onnx",
+                "reward": null,
+                "creation_time": 1779620330.5842624,
+                "auxillary_file_paths": [
+                    "results\\robot_test_3\\NPCAgent\\NPCAgent-22656.pt"
+                ]
+            },
+            {
+                "steps": 127232,
+                "file_path": "results\\robot_test_3\\NPCAgent\\NPCAgent-127232.onnx",
+                "reward": null,
+                "creation_time": 1779623099.415482,
+                "auxillary_file_paths": [
+                    "results\\robot_test_3\\NPCAgent\\NPCAgent-127232.pt"
+                ]
+            },
+            {
+                "steps": 128256,
+                "file_path": "results\\robot_test_3\\NPCAgent\\NPCAgent-128256.onnx",
+                "reward": null,
+                "creation_time": 1779624741.6451669,
+                "auxillary_file_paths": [
+                    "results\\robot_test_3\\NPCAgent\\NPCAgent-128256.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 128256,
+            "file_path": "results\\robot_test_3\\NPCAgent.onnx",
+            "reward": null,
+            "creation_time": 1779624741.6451669,
+            "auxillary_file_paths": [
+                "results\\robot_test_3\\NPCAgent\\NPCAgent-128256.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}
