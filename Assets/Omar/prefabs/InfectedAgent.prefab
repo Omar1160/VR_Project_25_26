@@ -82,9 +82,6 @@ PrefabInstance:
       addedObject: {fileID: 6500592836263814132}
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 1696c1f720cc98b43ab403663141450f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2621203017297380739}
-    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 1696c1f720cc98b43ab403663141450f, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 5016408781121498609}
   m_SourcePrefab: {fileID: 100100000, guid: 1696c1f720cc98b43ab403663141450f, type: 3}
 --- !u!1 &7391347981167139823 stripped
@@ -138,8 +135,17 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  healthyTarget: {fileID: 4621368561081284365, guid: b2a2bedb23d593747ab9e6ff07c03796, type: 3}
-  moveSpeed: 3
+  isInfected: 0
+  rotationSpeed: 30
+  healthySpeed: 0
+  infectedSpeed: 0
+  preyTarget: {fileID: 0}
+  escapeZoneTransform: {fileID: 0}
+  maxArenaDistance: 0
+  spawner: {fileID: 0}
+  bombPrefab: {fileID: 0}
+  height: 0.5
+  spawnArea: {fileID: 0}
 --- !u!114 &8047710084832066594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,19 +187,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2621203017297380739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7391347981167139823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 513d2c4147f09c54c9ebdb62094e4908, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.InfectionSystem
-  isInfected: 0
 --- !u!65 &5016408781121498609
 BoxCollider:
   m_ObjectHideFlags: 0

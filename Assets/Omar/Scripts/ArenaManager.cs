@@ -34,9 +34,16 @@ namespace Assets.Omar.Scripts
 		public float hunterThreshold = 0.60f;
 		public bool bombSpawnedThisEpisode = false;
 
-	
-		public void ResetStats()
+		private void Start()
 		{
+			// Forceer een schone start bij het laden van de scene
+			ResetStats();
+		}
+		public void ResetStats()
+
+		{
+			Debug.Log("<color=magenta>ArenaManager: Stats aan het resetten!</color>"); // ZIE JE DIT?
+
 			totalPreyEscaped = 0;
 			bombSpawnedThisEpisode = false;
 			UpdateUI();

@@ -78,18 +78,20 @@ namespace Assets.Scripts
 		
 			// Zorg dat de stats gereset worden
 			var manager = FindAnyObjectByType<ArenaManager>();
-			if(manager != null)
+			Debug.Log("Manager gevonden: " + (manager != null));
+			if (manager != null)
 			{
 				// We resetten de stats alleen als we de eerste agent in de array zijn 
 				// zodat we niet 20x per episode resetten
-				if(manager.allAgents.Length > 0 && manager.allAgents[0] == this)
-				{
-					manager.ResetStats();
-				}
+
+				manager.bombSpawnedThisEpisode = false;
+				manager.ResetStats();
+			
 			}
 		
 			if(manager != null && !manager.bombSpawnedThisEpisode)
 			{
+				Debug.Log("Bom wordt aangeroepen"); 
 				manager.bombSpawnedThisEpisode = true;
 				Invoke(nameof(DelayedBombSpawn), 0.2f);
 			}
@@ -111,7 +113,15 @@ namespace Assets.Scripts
 
 		private void DelayedBombSpawn()
 		{
-			spawner.DropBomb();
+			if (spawner != null)
+			{
+				Debug.Log("Agent probeert bom te spawnen!");
+				spawner.DropBomb();
+			}
+			else
+			{
+				Debug.LogError("Spawner is NIET gekoppeld in de Inspector!");
+			}
 		}
 
 		public override void CollectObservations(VectorSensor sensor)

@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.BombSpawner
   bombPrefab: {fileID: 205783006782701583, guid: ac91825f8bd9a6243b61cd8166d390cf, type: 3}
   arena: {fileID: 4268554701206803760}
-  spawnHeight: 20
+  spawnHeight: 50
   arenaSize: {x: 65.2, y: 64.3, z: 0}

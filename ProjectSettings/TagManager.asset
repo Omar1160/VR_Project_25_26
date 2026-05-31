@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Healthy
   - Infected
-<<<<<<< HEAD
   - Bomb
   - Escapezone
   - NPC
@@ -18,11 +17,6 @@ TagManager:
   - Checkpoint
   - Hunter
   - Escaped
-=======
-  - Walls
-  - Obstacle
-  - Ground
->>>>>>> main
   layers:
   - Default
   - TransparentFX
@@ -30,13 +24,8 @@ TagManager:
   - 
   - Water
   - UI
-<<<<<<< HEAD
   - NPCWall
   - Infected
-=======
-  - Ground
-  - 
->>>>>>> main
   - 
   - 
   - 

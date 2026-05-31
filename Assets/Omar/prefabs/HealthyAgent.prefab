@@ -780,10 +780,9 @@ GameObject:
   - component: {fileID: 941826474805341248}
   - component: {fileID: 401967178496400548}
   - component: {fileID: 8681261859795311689}
-  - component: {fileID: 3356925659184401043}
   - component: {fileID: 5011373622907205742}
-  - component: {fileID: 3007421904990881279}
   - component: {fileID: 8857021097138291961}
+  - component: {fileID: 8561457847656034445}
   m_Layer: 0
   m_Name: HealthyAgent
   m_TagString: Healthy
@@ -855,7 +854,7 @@ MonoBehaviour:
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
   m_BehaviorType: 0
-  m_BehaviorName: '  HealthyRobot'
+  m_BehaviorName: NPCAgent
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
@@ -874,26 +873,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.ML-Agents::Unity.MLAgents.DecisionRequester
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
---- !u!114 &3356925659184401043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8105307168406403816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97120c0cce0dc0546810f1c3ca837676, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthyAgent
-  agentParameters:
-    maxStep: 0
-  hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
-  currentState: 0
-  target: {fileID: 5820917958839527932, guid: 3a0ee1701f08b1a4eae3626f50ead855, type: 3}
-  exitZone: {fileID: 0}
-  moveSpeed: 3
 --- !u!54 &5011373622907205742
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -921,19 +900,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!114 &3007421904990881279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8105307168406403816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 513d2c4147f09c54c9ebdb62094e4908, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.InfectionSystem
-  isInfected: 0
 --- !u!65 &8857021097138291961
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -955,6 +921,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 3.7791903, z: 1}
   m_Center: {x: 0, y: 1.3895952, z: 0}
+--- !u!114 &8561457847656034445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8105307168406403816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c1cef799aef8d4e996f808960a80b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.InfectedAgent
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 10000
+  isInfected: 0
+  rotationSpeed: 20
+  healthySpeed: 20
+  infectedSpeed: 10
+  preyTarget: {fileID: 0}
+  escapeZoneTransform: {fileID: 0}
+  maxArenaDistance: 0
+  spawner: {fileID: 5637954902252169650, guid: 319f907aa2919824fbe5a67ef146ae13, type: 3}
+  bombPrefab: {fileID: 205783006782701583, guid: ac91825f8bd9a6243b61cd8166d390cf, type: 3}
+  height: 0.5
+  spawnArea: {fileID: 0}
 --- !u!1 &8369901404244163480
 GameObject:
   m_ObjectHideFlags: 0
