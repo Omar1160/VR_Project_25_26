@@ -1,0 +1,2 @@
+C:\Users\behlu\Desktop\VR_Project_25_26\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\behlu\Desktop\VR_Project_25_26\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt

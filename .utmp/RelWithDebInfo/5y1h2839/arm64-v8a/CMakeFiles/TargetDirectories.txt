@@ -1,0 +1,5 @@
+C:/Users/behlu/Desktop/VR_Project_25_26/.utmp/RelWithDebInfo/5y1h2839/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/behlu/Desktop/VR_Project_25_26/.utmp/RelWithDebInfo/5y1h2839/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/behlu/Desktop/VR_Project_25_26/.utmp/RelWithDebInfo/5y1h2839/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/behlu/Desktop/VR_Project_25_26/.utmp/RelWithDebInfo/5y1h2839/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/behlu/Desktop/VR_Project_25_26/.utmp/RelWithDebInfo/5y1h2839/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
