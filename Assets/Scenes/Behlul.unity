@@ -22635,6 +22635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d076cf490837cd34a91c9b8850c56542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleMove
+  isMovementFrozen: 0
   walkSpeed: 5
   sprintSpeed: 10
   jumpForce: 5

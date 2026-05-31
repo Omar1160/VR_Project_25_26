@@ -9,6 +9,9 @@ TagManager:
   - Walls
   - Obstacle
   - Ground
+  - Enemy
+  - Civilian
+  - Wall
   layers:
   - Default
   - TransparentFX
