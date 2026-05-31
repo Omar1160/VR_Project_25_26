@@ -1,0 +1,51 @@
+{
+    "CivilianAgent": {
+        "checkpoints": [
+            {
+                "steps": 30416,
+                "file_path": "results\\Adrian.0\\CivilianAgent\\CivilianAgent-30416.onnx",
+                "reward": 4.867333705226581,
+                "creation_time": 1779710289.538226,
+                "auxillary_file_paths": [
+                    "results\\Adrian.0\\CivilianAgent\\CivilianAgent-30416.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 30416,
+            "file_path": "results\\Adrian.0\\CivilianAgent.onnx",
+            "reward": 4.867333705226581,
+            "creation_time": 1779710289.538226,
+            "auxillary_file_paths": [
+                "results\\Adrian.0\\CivilianAgent\\CivilianAgent-30416.pt"
+            ]
+        }
+    },
+    "EnemyAgent": {
+        "checkpoints": [
+            {
+                "steps": 9000,
+                "file_path": "results\\Adrian.0\\EnemyAgent\\EnemyAgent-9000.onnx",
+                "reward": -1.6219998970627785,
+                "creation_time": 1779710289.6883574,
+                "auxillary_file_paths": [
+                    "results\\Adrian.0\\EnemyAgent\\EnemyAgent-9000.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 9000,
+            "file_path": "results\\Adrian.0\\EnemyAgent.onnx",
+            "reward": -1.6219998970627785,
+            "creation_time": 1779710289.6883574,
+            "auxillary_file_paths": [
+                "results\\Adrian.0\\EnemyAgent\\EnemyAgent-9000.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}
