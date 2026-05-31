@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SimpleMove : MonoBehaviour
 {
+    public bool isMovementFrozen = false;
+
     [Header("Movement")]
     public float walkSpeed = 5f;
     public float sprintSpeed = 8f;
@@ -30,13 +32,19 @@ public class SimpleMove : MonoBehaviour
     void Update()
     {
         Look();
-        GroundCheck();
-        Jump();
+        if (!isMovementFrozen)
+        {
+            GroundCheck();
+            Jump();
+        }
     }
 
     void FixedUpdate()
     {
-        Move();
+        if (!isMovementFrozen)
+        {
+            Move();
+        }
     }
 
     void Move()
