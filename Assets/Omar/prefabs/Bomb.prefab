@@ -126,6 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3d67cd6ee6c7c4da200db9d0dd9030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Bomb
+  targetsToInfect: []
+  spawner: {fileID: 5637954902252169650, guid: 319f907aa2919824fbe5a67ef146ae13, type: 3}
 --- !u!54 &-4880906268438762959
 Rigidbody:
   m_ObjectHideFlags: 0

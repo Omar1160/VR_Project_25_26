@@ -2120,6 +2120,9 @@ MonoBehaviour:
   arena: {fileID: 1792413337}
   preyWins: 0
   hunterWins: 0
+  isGlobalHuntMode: 0
+  hunterThreshold: 0.6
+  bombSpawnedThisEpisode: 0
 --- !u!4 &658922046
 Transform:
   m_ObjectHideFlags: 0
@@ -3303,7 +3306,6 @@ GameObject:
   - component: {fileID: 1048453256}
   - component: {fileID: 1048453255}
   - component: {fileID: 1048453254}
-  - component: {fileID: 1048453253}
   - component: {fileID: 1048453257}
   m_Layer: 0
   m_Name: Zone
@@ -3327,18 +3329,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 941198787}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1048453253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1048453251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d588d00e96a0c714caf95fa8510765d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.EscapeZone
 --- !u!65 &1048453254
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4781,54 +4771,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 320891168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1988847160
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1988847162}
-  - component: {fileID: 1988847161}
-  m_Layer: 0
-  m_Name: BombSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1988847161
+--- !u!114 &1988847161 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5637954902252169650, guid: 319f907aa2919824fbe5a67ef146ae13, type: 3}
+  m_PrefabInstance: {fileID: 4941256072722449103}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988847160}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d58ec583287a0fc4196a4c0db5e249b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.BombSpawner
-  bombPrefab: {fileID: 205783006782701583, guid: ac91825f8bd9a6243b61cd8166d390cf, type: 3}
-  arena: {fileID: 1988847162}
-  spawnHeight: 20
-  arenaSize: {x: 65.2, y: 64.3, z: 0}
---- !u!4 &1988847162
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988847160}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2018485774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5230,6 +5183,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &4941256072722449103
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4268554701206803760, guid: 319f907aa2919824fbe5a67ef146ae13, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268554701206803760, guid: 319f907aa2919824fbe5a67ef146ae13, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268554701206803760, guid: 319f907aa2919824fbe5a67ef146ae13, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268554701206803760, guid: 319f907aa2919824fbe5a67ef146ae13, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268554701206803760, guid: 319f907aa2919824fbe5a67ef146ae13, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268554701206803760, guid: 319f907aa2919824fbe5a67ef146ae13, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268554701206803760, guid: 319f907aa2919824fbe5a67ef146ae13, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268554701206803760, guid: 319f907aa2919824fbe5a67ef146ae13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268554701206803760, guid: 319f907aa2919824fbe5a67ef146ae13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268554701206803760, guid: 319f907aa2919824fbe5a67ef146ae13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444985102351334274, guid: 319f907aa2919824fbe5a67ef146ae13, type: 3}
+      propertyPath: m_Name
+      value: BombSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637954902252169650, guid: 319f907aa2919824fbe5a67ef146ae13, type: 3}
+      propertyPath: spawnHeight
+      value: 50
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 319f907aa2919824fbe5a67ef146ae13, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -5240,4 +5254,4 @@ SceneRoots:
   - {fileID: 658922046}
   - {fileID: 806424205}
   - {fileID: 2143319540}
-  - {fileID: 1988847162}
+  - {fileID: 4941256072722449103}

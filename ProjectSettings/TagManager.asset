@@ -16,6 +16,7 @@ TagManager:
   - Npcwall
   - Checkpoint
   - Hunter
+  - Escaped
   layers:
   - Default
   - TransparentFX
