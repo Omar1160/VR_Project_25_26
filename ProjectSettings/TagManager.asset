@@ -12,6 +12,10 @@ TagManager:
   - Prey
   - Enemy
   - Wall
+  - Bombarea
+  - Npcwall
+  - Checkpoint
+  - Hunter
   layers:
   - Default
   - TransparentFX
@@ -19,8 +23,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - NPCWall
+  - Infected
   - 
   - 
   - 

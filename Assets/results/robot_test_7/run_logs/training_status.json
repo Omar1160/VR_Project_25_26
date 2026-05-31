@@ -1,0 +1,48 @@
+{
+    "NPCAgent": {
+        "elo": 919.7826384536415,
+        "checkpoints": [
+            {
+                "steps": 83270,
+                "file_path": "results\\robot_test_7\\NPCAgent\\NPCAgent-83270.onnx",
+                "reward": null,
+                "creation_time": 1780230047.9018648,
+                "auxillary_file_paths": [
+                    "results\\robot_test_7\\NPCAgent\\NPCAgent-83270.pt"
+                ]
+            },
+            {
+                "steps": 92480,
+                "file_path": "results\\robot_test_7\\NPCAgent\\NPCAgent-92480.onnx",
+                "reward": 0.8639999964274466,
+                "creation_time": 1780232208.5565102,
+                "auxillary_file_paths": [
+                    "results\\robot_test_7\\NPCAgent\\NPCAgent-92480.pt"
+                ]
+            },
+            {
+                "steps": 238310,
+                "file_path": "results\\robot_test_7\\NPCAgent\\NPCAgent-238310.onnx",
+                "reward": null,
+                "creation_time": 1780233246.5120964,
+                "auxillary_file_paths": [
+                    "results\\robot_test_7\\NPCAgent\\NPCAgent-238310.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 238310,
+            "file_path": "results\\robot_test_7\\NPCAgent.onnx",
+            "reward": null,
+            "creation_time": 1780233246.5120964,
+            "auxillary_file_paths": [
+                "results\\robot_test_7\\NPCAgent\\NPCAgent-238310.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

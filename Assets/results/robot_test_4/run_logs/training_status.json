@@ -2,44 +2,44 @@
     "PreyAgent": {
         "checkpoints": [
             {
-                "steps": 400,
-                "file_path": "results\\robot_test_4\\PreyAgent\\PreyAgent-400.onnx",
-                "reward": -0.6602581320330501,
-                "creation_time": 1779637391.8113272,
+                "steps": 109936,
+                "file_path": "results\\robot_test_4\\PreyAgent\\PreyAgent-109936.onnx",
+                "reward": -0.39147246084030485,
+                "creation_time": 1779736632.021612,
                 "auxillary_file_paths": [
-                    "results\\robot_test_4\\PreyAgent\\PreyAgent-400.pt"
+                    "results\\robot_test_4\\PreyAgent\\PreyAgent-109936.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 400,
+            "steps": 109936,
             "file_path": "results\\robot_test_4\\PreyAgent.onnx",
-            "reward": -0.6602581320330501,
-            "creation_time": 1779637391.8113272,
+            "reward": -0.39147246084030485,
+            "creation_time": 1779736632.021612,
             "auxillary_file_paths": [
-                "results\\robot_test_4\\PreyAgent\\PreyAgent-400.pt"
+                "results\\robot_test_4\\PreyAgent\\PreyAgent-109936.pt"
             ]
         }
     },
     "NPCAgent": {
         "checkpoints": [
             {
-                "steps": 400,
-                "file_path": "results\\robot_test_4\\NPCAgent\\NPCAgent-400.onnx",
-                "reward": -39.79999136924744,
-                "creation_time": 1779637391.9277105,
+                "steps": 386584,
+                "file_path": "results\\robot_test_4\\NPCAgent\\NPCAgent-386584.onnx",
+                "reward": -0.18203434838186494,
+                "creation_time": 1779736632.1545181,
                 "auxillary_file_paths": [
-                    "results\\robot_test_4\\NPCAgent\\NPCAgent-400.pt"
+                    "results\\robot_test_4\\NPCAgent\\NPCAgent-386584.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 400,
+            "steps": 386584,
             "file_path": "results\\robot_test_4\\NPCAgent.onnx",
-            "reward": -39.79999136924744,
-            "creation_time": 1779637391.9277105,
+            "reward": -0.18203434838186494,
+            "creation_time": 1779736632.1545181,
             "auxillary_file_paths": [
-                "results\\robot_test_4\\NPCAgent\\NPCAgent-400.pt"
+                "results\\robot_test_4\\NPCAgent\\NPCAgent-386584.pt"
             ]
         }
     },
