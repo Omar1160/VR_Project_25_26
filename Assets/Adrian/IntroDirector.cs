@@ -62,8 +62,6 @@ public class IntroDirector : MonoBehaviour
 
     IEnumerator IntroSequenceRoutine()
     {
-        // 1. Freeze player movement immediately
-        playerScript.isMovementFrozen = true;
 
         // 2. Wait 6 seconds looking around in silence
         yield return new WaitForSeconds(soundAndSpawnDelay);
@@ -85,12 +83,6 @@ public class IntroDirector : MonoBehaviour
 
         isMeteorFalling = true;
         Debug.Log("Meteor falling and audio playing!");
-
-        // 4. Wait the 4 seconds it takes to fall, then unlock movement
-        yield return new WaitForSeconds(fallDuration);
-
-        playerScript.isMovementFrozen = false;
-        Debug.Log("Movement restored! Go explore the crash site.");
     }
 
     void Update()
@@ -115,6 +107,11 @@ public class IntroDirector : MonoBehaviour
 
     void TriggerScreenFlash()
     {
+        if (playerScript != null)
+        {
+            playerScript.isMovementFrozen = true;
+            Debug.Log("Impact shockwave! Player frozen.");
+        }
 
         if (flashAudio != null)
         {
@@ -126,6 +123,8 @@ public class IntroDirector : MonoBehaviour
             flashCanvasGroup.alpha = 1f; // Go full blind white instantly
             StartCoroutine(FadeFlashRoutine());
         }
+
+        StartCoroutine(UnfreezePlayerRoutine());    
     }
 
     IEnumerator FadeFlashRoutine()
@@ -138,5 +137,17 @@ public class IntroDirector : MonoBehaviour
             yield return null;
         }
         flashCanvasGroup.alpha = 0f;
+    }
+
+    IEnumerator UnfreezePlayerRoutine()
+    {
+        // Wait for the exact freeze duration you set in the inspector (default 5s)
+        yield return new WaitForSeconds(freezeDuration);
+
+        if (playerScript != null)
+        {
+            playerScript.isMovementFrozen = false;
+            Debug.Log("Movement restored! Go explore the crash site.");
+        }
     }
 }
