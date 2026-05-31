@@ -3,22 +3,22 @@
         "elo": 1200.0,
         "checkpoints": [
             {
-                "steps": 8960,
-                "file_path": "results\\robot_test_8\\NPCAgent\\NPCAgent-8960.onnx",
+                "steps": 59200,
+                "file_path": "results\\robot_test_8\\NPCAgent\\NPCAgent-59200.onnx",
                 "reward": null,
-                "creation_time": 1780253749.0423212,
+                "creation_time": 1780261115.1703906,
                 "auxillary_file_paths": [
-                    "results\\robot_test_8\\NPCAgent\\NPCAgent-8960.pt"
+                    "results\\robot_test_8\\NPCAgent\\NPCAgent-59200.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 8960,
+            "steps": 59200,
             "file_path": "results\\robot_test_8\\NPCAgent.onnx",
             "reward": null,
-            "creation_time": 1780253749.0423212,
+            "creation_time": 1780261115.1703906,
             "auxillary_file_paths": [
-                "results\\robot_test_8\\NPCAgent\\NPCAgent-8960.pt"
+                "results\\robot_test_8\\NPCAgent\\NPCAgent-59200.pt"
             ]
         }
     },
