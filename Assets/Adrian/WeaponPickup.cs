@@ -32,6 +32,8 @@ public class WeaponPickup : MonoBehaviour
     public float fireRate = 0.25f;  // Time between shots
     private float nextTimeToFire = 0f;
 
+    public AudioSource weaponFire;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -95,11 +97,14 @@ public class WeaponPickup : MonoBehaviour
     {
         if (firePoint != null && laserPrefab != null)
         {
-			// Spawn the laser bolt at the barrel tip, matching the rotation of the barrel
-			GameObject laser = Instantiate(laserPrefab, firePoint.position, firePoint.rotation);
+            // Spawn the laser bolt at the barrel tip, matching the rotation of the barrel
+            Instantiate(laserPrefab, firePoint.position, firePoint.rotation);
+        }
 
-			laser.transform.SetParent(null);
-		}
+        if (weaponFire != null)
+        {
+            weaponFire.Play();
+        }
     }
 
     void PickupWeapon()
