@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using TMPro;
 using Unity.MLAgents;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Omar.Scripts
 {
@@ -17,10 +18,9 @@ namespace Assets.Omar.Scripts
 		public TextMeshProUGUI txtEscaped;
 		public TextMeshProUGUI txtHunters;
 		public TextMeshProUGUI txtPreys;
-
+		public TextMeshProUGUI txtFreezed;
 
 		public int totalPreyEscaped = 0;
-		public BombSpawner bombSpawner;
 		public Vector3 arenaSize = new Vector3(80, 0.1f, 70);
 		public Transform arena;
 
@@ -32,7 +32,6 @@ namespace Assets.Omar.Scripts
 
 		public bool isGlobalHuntMode = false;
 		public float hunterThreshold = 0.60f;
-		public bool bombSpawnedThisEpisode = false;
 
 		private void Start()
 		{
@@ -45,7 +44,6 @@ namespace Assets.Omar.Scripts
 			Debug.Log("<color=magenta>ArenaManager: Stats aan het resetten!</color>"); // ZIE JE DIT?
 
 			totalPreyEscaped = 0;
-			bombSpawnedThisEpisode = false;
 			UpdateUI();
 		}
 		public void UpdateUI()
@@ -53,14 +51,15 @@ namespace Assets.Omar.Scripts
 			// Cijfers Ophalen
 			int totalHunters = allAgents.Count(a => a.CompareTag("Hunter") && a.gameObject.activeSelf == true);
 			int totalPrey = allAgents.Count(a => a.CompareTag("Prey") && a.gameObject.activeSelf == true);
+			int totalFreezed = allAgents.Count(a => a.CompareTag("Freezed") && a.gameObject.activeSelf);
 
-			
 			Debug.Log("totalHunters:" + totalHunters);
 			Debug.Log("totalAgents:" + totalPrey);
 
 			txtEscaped.text = "Escaped: " + totalPreyEscaped;
 			txtHunters.text = "Hunters: " + totalHunters;
 			txtPreys.text = "Preys: " + totalPrey;
+			txtFreezed.text = "Freezed: " + totalFreezed; // Update de UI
 
 			// Na de UI update, checken we of het spel voorbij is
 			if (!isEnding) CheckGameStatus(totalHunters);
@@ -89,6 +88,8 @@ namespace Assets.Omar.Scripts
 			{
 				hunterWins++;
 				reason = "Hunter Wint!";
+
+				SceneManager.LoadScene("GameOver");
 				EndGame();
 
 			}
@@ -114,6 +115,7 @@ namespace Assets.Omar.Scripts
 			if (isEnding) return;
 			isEnding = true; // Zet een slot op de deur
 
+
 			Invoke(nameof(ForceEndEpisodes), 0.3f);
 
 		}
@@ -123,11 +125,6 @@ namespace Assets.Omar.Scripts
 			foreach (var agent in allAgents)
 			{
 				agent.EndEpisode();
-			}
-
-			if (bombSpawner != null)
-			{
-				bombSpawner.ResetSpawner();
 			}
 
 			isEnding = false;

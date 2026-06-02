@@ -1,4 +1,5 @@
 ﻿using Assets.Omar.Scripts;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 
@@ -31,10 +33,6 @@ namespace Assets.Scripts
 
 		public float maxArenaDistance;
 
-		public BombSpawner spawner;
-
-		public GameObject bombPrefab;
-
 		public float height = 0.5f;
 
 		Rigidbody rb;
@@ -47,8 +45,9 @@ namespace Assets.Scripts
 
 		private float lastDistanceToZone;
 
-		private bool reachedGoal = false;
+		private bool isWaitingInPort = false; // Nieuwe status
 
+		public bool isFrozenByLaser = false;
 		public override void Initialize()
 		{
 			rb = GetComponent<Rigidbody>();
@@ -78,24 +77,24 @@ namespace Assets.Scripts
 		
 			// Zorg dat de stats gereset worden
 			var manager = FindAnyObjectByType<ArenaManager>();
-			Debug.Log("Manager gevonden: " + (manager != null));
+		//	Debug.Log("Manager gevonden: " + (manager != null));
 			if (manager != null)
 			{
 				// We resetten de stats alleen als we de eerste agent in de array zijn 
 				// zodat we niet 20x per episode resetten
 
-				manager.bombSpawnedThisEpisode = false;
 				manager.ResetStats();
 			
 			}
-		
-			if(manager != null && !manager.bombSpawnedThisEpisode)
+
+			// start de intro director (de meteorieet die valt)
+			var director = FindAnyObjectByType<IntroDirector>();
+			if(director != null)
 			{
-				Debug.Log("Bom wordt aangeroepen"); 
-				manager.bombSpawnedThisEpisode = true;
-				Invoke(nameof(DelayedBombSpawn), 0.2f);
+				director.StartIntroSequence();
 			}
-			
+		
+		
 			if(spawnArea != null)
 			{
 				transform.position = spawnArea.GetRandomPosition();
@@ -111,19 +110,6 @@ namespace Assets.Scripts
 		}
 
 
-		private void DelayedBombSpawn()
-		{
-			if (spawner != null)
-			{
-				Debug.Log("Agent probeert bom te spawnen!");
-				spawner.DropBomb();
-			}
-			else
-			{
-				Debug.LogError("Spawner is NIET gekoppeld in de Inspector!");
-			}
-		}
-
 		public override void CollectObservations(VectorSensor sensor)
 		{
 		
@@ -132,7 +118,7 @@ namespace Assets.Scripts
 			//2. Afstand naar de EscapeZone (gebruik je nieuwe, snelle methode)
 			sensor.AddObservation(GetDistanceToEscapeZone());
 			// 3. Afstand naar de dichtsbijzijnde Prey
-			sensor.AddObservation(GetNearestPreyDistance() / maxArenaDistance);
+			sensor.AddObservation(GetNearestPreyDistance());
 
 		}
 
@@ -164,16 +150,18 @@ namespace Assets.Scripts
 		{
 			// 1. Bewegingslogica (voorbeeld)
 
-			float moveX = actions.ContinuousActions[0];
-			float moveZ = actions.ContinuousActions[1];
-			float turn = actions.ContinuousActions[2]; // Nieuwe actie voor draaien
+			if (!rb.isKinematic)
+			{
+				float moveX = actions.ContinuousActions[0];
+				float moveZ = actions.ContinuousActions[1];
+				float turn = actions.ContinuousActions[2]; // Nieuwe actie voor draaien
 
-			float speed = isInfected ? infectedSpeed : healthySpeed;
-			rb.linearVelocity = new Vector3(moveX * speed, 0, moveZ * speed);
-			rb.angularVelocity = new Vector3(0, turn * rotationSpeed, 0);
-			// dit is de rem: Limiter de hoeksnelheid
-		
+				float speed = isInfected ? infectedSpeed : healthySpeed;
+				rb.linearVelocity = new Vector3(moveX * speed, 0, moveZ * speed);
+				rb.angularVelocity = new Vector3(0, turn * rotationSpeed, 0);
+				// dit is de rem: Limiter de hoeksnelheid
 
+			}
 			if(isInfected)
 			{
 				float currentDist = GetNearestPreyDistance();
@@ -254,13 +242,72 @@ namespace Assets.Scripts
 				AddReward(1.0f);
 				Debug.Log($"<color=green>Prey is ontsnapt! +1.0 Reward</color>");
 			}
+
+			if(gameObject.CompareTag("Hunter") && other.CompareTag("Player"))
+			{
+				Debug.Log("De hunter heeft de speler gegrepen! Game Over.");
+
+				SceneManager.LoadScene("GameOver");
+			}
+
+			if(gameObject.CompareTag("Prey") && other.CompareTag("EscapePort"))
+			{
+				rb.linearVelocity = Vector3.zero;
+				rb.angularVelocity = Vector3.zero;
+				rb.isKinematic = true;
+
+				isWaitingInPort = true;
+				gameObject.tag = "Freezed";
+
+				GetComponentInChildren<Renderer>().material.color = Color.yellow;
+
+				Debug.Log("Prey is nu 'Freezed n wacht in de poort");
+			}
+
 		}
 
+		public void FreezeByLaser()
+		{
+			if (!gameObject.CompareTag("Hunter"))
+			{
+				// Debug.Log("Prey kan niet bevroren worden door de laser!");
+				return;
+			}
+			if (isFrozenByLaser) return;
+			StartCoroutine(FreezeRoutine());
+		}
+
+		private IEnumerator FreezeRoutine()
+		{
+			isFrozenByLaser = true;
+
+			rb.isKinematic = true;
+			rb.linearVelocity = Vector3.zero;
+
+			var rend = GetComponentInChildren<Renderer>();
+			Color originalColor = rend.material.color;
+			rend.material.color = new Color(0.5f, 0f, 0.5f);
+
+			yield return new WaitForSeconds(5f);
+
+			rend.material.color = originalColor;
+			rb.isKinematic = false;
+			isFrozenByLaser = false;
+		}
+		public void UnfreezeAndEscape()
+		{
+			if(isWaitingInPort)
+			{
+				isWaitingInPort = false;
+				rb.isKinematic = false;
+
+			}
+		}
 		private void OnCollisionEnter(Collision collision)
 		{
 			if (collision.gameObject.CompareTag("Wall"))
 			{
-				Debug.Log("Agent Hit wall");
+			//	Debug.Log("Agent Hit wall");
 
 				AddReward(-0.01f);
 			}

@@ -4,7 +4,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("AdrianGun");
+        SceneManager.LoadScene("Behlul Final");
     }
 
     public void GoToMainMenu()

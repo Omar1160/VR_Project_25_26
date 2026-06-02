@@ -17,6 +17,13 @@ TagManager:
   - Checkpoint
   - Hunter
   - Escaped
+  - Meteor
+  - EscapeWall
+  - EscapePort
+  - Key
+  - Civilian
+  - CloseButton
+  - Freezed
   layers:
   - Default
   - TransparentFX
@@ -26,7 +33,7 @@ TagManager:
   - UI
   - NPCWall
   - Infected
-  - 
+  - Ground
   - 
   - 
   - 

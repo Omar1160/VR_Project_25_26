@@ -95,9 +95,11 @@ public class WeaponPickup : MonoBehaviour
     {
         if (firePoint != null && laserPrefab != null)
         {
-            // Spawn the laser bolt at the barrel tip, matching the rotation of the barrel
-            Instantiate(laserPrefab, firePoint.position, firePoint.rotation);
-        }
+			// Spawn the laser bolt at the barrel tip, matching the rotation of the barrel
+			GameObject laser = Instantiate(laserPrefab, firePoint.position, firePoint.rotation);
+
+			laser.transform.SetParent(null);
+		}
     }
 
     void PickupWeapon()

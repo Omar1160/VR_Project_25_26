@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using UnityEngine;
 
 public class LaserProjectile : MonoBehaviour
@@ -23,8 +24,15 @@ public class LaserProjectile : MonoBehaviour
             // We hit something!
             Debug.Log("Laser hit: " + hit.transform.name);
 
-            // Put your damage logic here if hitting an enemy!
-
+            if(hit.collider.CompareTag("Hunter"))
+            {
+				NPCAgent hunter = hit.collider.GetComponent<NPCAgent>();
+				if (hunter != null)
+				{
+					hunter.FreezeByLaser();
+					Debug.Log("Hunter geraakt door laser! Bevriezen geactiveerd.");
+				}
+			}
             Destroy(gameObject); // Destroy the laser bolt on impact
         }
     }
