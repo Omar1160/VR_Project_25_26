@@ -9,9 +9,26 @@ EditorBuildSettings:
     path: Assets/Scenes/BehlulVr.unity
     guid: 5c9bc79d82c3f3d40b699ad7a6dcab9f
   - enabled: 1
+    path: Assets/Omar/Scenes/OmarScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 0
+    path: Assets/Scenes/AdrianGun.unity
+    guid: 66c93112789aad045b1da62b0863c298
+  - enabled: 1
+    path: Assets/Omar/Scenes/Behlul Final.unity
+    guid: 8f62cbdc80942ad42a9b919a88a48e0e
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: abf0383719b2f25499053db28f3bfd89
+  - enabled: 1
+    path: Assets/Scenes/GameWon.unity
+    guid: ff2143ecae75e914dba5b48ed60be33e
     path: Assets/Scenes/Behlul.unity
     guid: c9f764d959ca0dd42a2496a225068a28
   m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 02950ff573c9b074186d2a1f1ee79bc4, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 3735c0fc1aaf41340a1cb2321c70df0d, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 4cfa4b2fb00127742a6d776d7f18d17c, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: cd10b80f76716b94bbc4b0d2878ea2a8, type: 2}
   m_UseUCBPForAssetBundles: 0

@@ -1,0 +1,66 @@
+{
+    "NPCAgent": {
+        "elo": -159.326969430695,
+        "checkpoints": [
+            {
+                "steps": 83270,
+                "file_path": "results\\robot_test_7\\NPCAgent\\NPCAgent-83270.onnx",
+                "reward": null,
+                "creation_time": 1780230047.9018648,
+                "auxillary_file_paths": [
+                    "results\\robot_test_7\\NPCAgent\\NPCAgent-83270.pt"
+                ]
+            },
+            {
+                "steps": 92480,
+                "file_path": "results\\robot_test_7\\NPCAgent\\NPCAgent-92480.onnx",
+                "reward": 0.8639999964274466,
+                "creation_time": 1780232208.5565102,
+                "auxillary_file_paths": [
+                    "results\\robot_test_7\\NPCAgent\\NPCAgent-92480.pt"
+                ]
+            },
+            {
+                "steps": 238310,
+                "file_path": "results\\robot_test_7\\NPCAgent\\NPCAgent-238310.onnx",
+                "reward": null,
+                "creation_time": 1780233246.5120964,
+                "auxillary_file_paths": [
+                    "results\\robot_test_7\\NPCAgent\\NPCAgent-238310.pt"
+                ]
+            },
+            {
+                "steps": 499912,
+                "file_path": "results\\robot_test_7\\NPCAgent\\NPCAgent-499912.onnx",
+                "reward": 0.7253752189942382,
+                "creation_time": 1780234325.8794506,
+                "auxillary_file_paths": [
+                    "results\\robot_test_7\\NPCAgent\\NPCAgent-499912.pt"
+                ]
+            },
+            {
+                "steps": 586170,
+                "file_path": "results\\robot_test_7\\NPCAgent\\NPCAgent-586170.onnx",
+                "reward": 0.7757498661677042,
+                "creation_time": 1780234662.7275274,
+                "auxillary_file_paths": [
+                    "results\\robot_test_7\\NPCAgent\\NPCAgent-586170.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 586170,
+            "file_path": "results\\robot_test_7\\NPCAgent.onnx",
+            "reward": 0.7757498661677042,
+            "creation_time": 1780234662.7275274,
+            "auxillary_file_paths": [
+                "results\\robot_test_7\\NPCAgent\\NPCAgent-586170.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

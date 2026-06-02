@@ -103,6 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ada950807b003f14b83982cfed1e95b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LaserProjectile
-  speed: 40
+  speed: 20
   lifeTime: 3
   damage: 10

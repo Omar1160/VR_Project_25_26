@@ -1,0 +1,51 @@
+{
+    "PreyAgent": {
+        "checkpoints": [
+            {
+                "steps": 400,
+                "file_path": "results\\robot_test_4\\PreyAgent\\PreyAgent-400.onnx",
+                "reward": -0.6602581320330501,
+                "creation_time": 1779637391.8113272,
+                "auxillary_file_paths": [
+                    "results\\robot_test_4\\PreyAgent\\PreyAgent-400.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 400,
+            "file_path": "results\\robot_test_4\\PreyAgent.onnx",
+            "reward": -0.6602581320330501,
+            "creation_time": 1779637391.8113272,
+            "auxillary_file_paths": [
+                "results\\robot_test_4\\PreyAgent\\PreyAgent-400.pt"
+            ]
+        }
+    },
+    "NPCAgent": {
+        "checkpoints": [
+            {
+                "steps": 400,
+                "file_path": "results\\robot_test_4\\NPCAgent\\NPCAgent-400.onnx",
+                "reward": -39.79999136924744,
+                "creation_time": 1779637391.9277105,
+                "auxillary_file_paths": [
+                    "results\\robot_test_4\\NPCAgent\\NPCAgent-400.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 400,
+            "file_path": "results\\robot_test_4\\NPCAgent.onnx",
+            "reward": -39.79999136924744,
+            "creation_time": 1779637391.9277105,
+            "auxillary_file_paths": [
+                "results\\robot_test_4\\NPCAgent\\NPCAgent-400.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

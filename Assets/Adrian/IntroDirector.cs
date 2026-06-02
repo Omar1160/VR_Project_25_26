@@ -4,7 +4,7 @@ using UnityEngine;
 public class IntroDirector : MonoBehaviour
 {
 
-    public SimpleMove playerScript;
+    public SimpleMove2 playerScript;
 
     [Header("Settings")]
     public float freezeDuration = 10f;
@@ -149,5 +149,16 @@ public class IntroDirector : MonoBehaviour
             playerScript.isMovementFrozen = false;
             Debug.Log("Movement restored! Go explore the crash site.");
         }
+    }
+
+    public void StartIntroSequence()
+    {
+        StopAllCoroutines();
+        timeElapsed = 0f;
+        isMeteorFalling = false;
+        meteorObject.SetActive(false);
+        if (flashCanvasGroup != null) flashCanvasGroup.alpha = 0f;
+
+        StartCoroutine(IntroSequenceRoutine());
     }
 }

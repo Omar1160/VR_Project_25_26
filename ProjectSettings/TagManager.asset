@@ -6,12 +6,24 @@ TagManager:
   tags:
   - Healthy
   - Infected
-  - Walls
-  - Obstacle
-  - Ground
+  - Bomb
+  - Escapezone
+  - NPC
+  - Prey
   - Enemy
-  - Civilian
   - Wall
+  - Bombarea
+  - Npcwall
+  - Checkpoint
+  - Hunter
+  - Escaped
+  - Meteor
+  - EscapeWall
+  - EscapePort
+  - Key
+  - Civilian
+  - CloseButton
+  - Freezed
   layers:
   - Default
   - TransparentFX
@@ -19,9 +31,9 @@ TagManager:
   - 
   - Water
   - UI
+  - NPCWall
+  - Infected
   - Ground
-  - 
-  - 
   - 
   - 
   - 
