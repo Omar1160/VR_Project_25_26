@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WeaponPickup : MonoBehaviour
+public class WeaponPickUpV2 : MonoBehaviour
 {
     [Header("Arcade Floating Settings")]
     public float rotationSpeed = 50f;
@@ -23,7 +23,7 @@ public class WeaponPickup : MonoBehaviour
     private bool playerInRange = false;
 
     [Header("References")]
-    private Transform playerWeaponSlot;
+    [SerializeField] private Transform playerWeaponSlot;
     private Rigidbody rb;
     private BoxCollider[] colliders;
 
@@ -67,7 +67,7 @@ public class WeaponPickup : MonoBehaviour
 
         // --- NEW: SHOOTING LOGIC ---
         // Only allow shooting if the gun IS EQUIPPED and player clicks Left Mouse (Fire1)
-        if (isEquipped && Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if (isEquipped && OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + fireRate;
             ShootLaser();
@@ -75,8 +75,9 @@ public class WeaponPickup : MonoBehaviour
 
 
         // 2. Pickup Logic
-        if (playerInRange && !isEquipped && Input.GetKeyDown(pickupKey))
+        if (playerInRange && !isEquipped && OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
         {
+            Debug.Log("Weapon Slot = " + playerWeaponSlot);
             PickupWeapon();
         }
 
@@ -118,7 +119,6 @@ public class WeaponPickup : MonoBehaviour
         rb.useGravity = false;
 
         foreach (var col in colliders) col.enabled = false;
-
         transform.SetParent(playerWeaponSlot);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
@@ -148,7 +148,7 @@ public class WeaponPickup : MonoBehaviour
         if (other.CompareTag("Player") && !isEquipped)
         {
             playerInRange = true;
-            playerWeaponSlot = other.transform.Find("WeaponSlot");
+            //playerWeaponSlot = other.transform.Find("WeaponSlot");
         }
     }
 
@@ -159,4 +159,4 @@ public class WeaponPickup : MonoBehaviour
             playerInRange = false;
         }
     }
-}   
+}

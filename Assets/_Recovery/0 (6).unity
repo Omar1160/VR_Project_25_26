@@ -14866,7 +14866,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cd50fabeb990d1d4fba60dffa4596ffb, type: 3}
   - {fileID: 8300000, guid: 2e3005243a6bd394fb80e82a35f5d50f, type: 3}
   - {fileID: 8300000, guid: 7d2f763859ac4e548bb6732364d2bb7d, type: 3}
-  minDelay: 15
+  minDelay: 10
   maxDelay: 30
   minVolume: 0.6
   maxVolume: 1
